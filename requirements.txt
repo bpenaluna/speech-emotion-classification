@@ -1,0 +1,8 @@
+flask
+librosa
+torch
+torchvision
+numpy
+python_speech_features
+opencv-python
+gunicorn
