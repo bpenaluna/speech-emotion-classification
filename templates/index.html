@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Speech Emotion Classifier</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Speech Emotion Classifier</h1>
     <p>Audio clip to classify</p>
     <form enctype="multipart/form-data" id="upload-form">
-        <input type="file" id="myFile" name="filename" accept="audio/*" required>
-        <button type="submit">Submit</button>
+      <input
+        type="file"
+        id="myFile"
+        name="filename"
+        accept="audio/*"
+        required
+      />
+      <button type="submit">Submit</button>
     </form>
     <p id="result"></p>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>
-</body>
+  </body>
 </html>

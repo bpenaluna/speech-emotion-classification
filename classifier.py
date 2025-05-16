@@ -20,12 +20,14 @@ model = torch.jit.load('speech-classifier.pth', map_location=torch.device('cpu')
 def load_audio(audio_path):
   signal, rate = librosa.load(audio_path)
   signal = librosa.effects.preemphasis(signal, coef=0.97) # apply preemphasis filter
-  signal = librosa.util.fix_length(signal, size=95646)
+  signal = librosa.effects.trim(signal, top_db=40)[0] # trim leading and trailing silence
+  signal = librosa.util.fix_length(signal, size=57344)
   return signal, rate
 
 # preprocessing
 def preprocess(signal, rate):
   MFCC = mfcc(signal)
+  print(MFCC.shape)
 
   # convert to mel spectogram
   #mel_signal = librosa.feature.melspectrogram(y=signal, sr=rate, hop_length=512, n_fft=1024, n_mels=60)
@@ -53,7 +55,7 @@ def predict_emotion(file_path):
     print('Loading audio...')
     signal, rate = librosa.load(file_path)
     signal = librosa.effects.preemphasis(signal, coef=0.97) # apply preemphasis filter
-    signal = librosa.util.fix_length(signal, size=95646)
+    signal = librosa.util.fix_length(signal, size=57344)
     input = preprocess(signal, rate).unsqueeze(0)
     print(input.shape)
     print('Predicting...')
