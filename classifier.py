@@ -15,6 +15,11 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Load model
 model = torch.jit.load('speech-classifier.pth', map_location=torch.device('cpu'))
+quantized_model = torch.quantization.quantize_dynamic(
+    model,
+    {torch.nn.Linear},
+    dtype=torch.qint8
+)
 
 # load audio
 def load_audio(audio_path):
