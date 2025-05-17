@@ -4,21 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Speech Emotion Classifier</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
-    <h1>Speech Emotion Classifier</h1>
-    <p>Audio clip to classify</p>
-    <form enctype="multipart/form-data" id="upload-form">
-      <input
-        type="file"
-        id="myFile"
-        name="filename"
-        accept="audio/*"
-        required
-      />
-      <button type="submit">Submit</button>
-    </form>
-    <p id="result"></p>
+    <h1>Speech Emotion Classifier 	
+&#128362</h1>
+    <div id="form">
+      <p>Audio Upload:</p>
+      <form enctype="multipart/form-data" id="upload-form">
+        <input
+          type="file"
+          id="myFile"
+          name="filename"
+          accept="audio/*"
+          required
+        />
+        <button type="submit" id="submit">Submit</button>
+      </form>
+      <p id="result"></p>
+    </div>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>
   </body>

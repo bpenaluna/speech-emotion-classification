@@ -1,0 +1,38 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #fff;
+    font-size: 90px;
+}
+
+body {
+    background-color: #9718ba;
+    width: 90vw;
+    height: 95vh;
+    margin: auto;
+}
+
+#form {
+    background-color: #ffffff90;
+    border: 1mm solid #000 ;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 10px 30px;
+}
+
+button {
+    padding: 5px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+input {
+    padding: 5px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+}
