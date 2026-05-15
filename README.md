@@ -23,18 +23,6 @@ The model can classify the following emotions:
 4. The MFCC features are passed to a quantized TorchScript model (`speech-classifier.pth`) for inference.
 5. The predicted emotion label is returned and displayed.
 
-## Project Structure
-
-```
-speech-emotion-classification/
-├── classifier.py          # Flask app — audio preprocessing, inference, and routes
-├── speech-classifier.pth  # Pre-trained TorchScript model
-├── requirements.txt       # Python dependencies
-├── static/                # Static assets (CSS, JS)
-└── templates/             # HTML templates
-    └── index.html         # Upload form
-```
-
 ## Installation
 
 **Prerequisites:** Python 3.8+
@@ -50,8 +38,6 @@ speech-emotion-classification/
    pip install -r requirements.txt
    ```
 
-   > **Note:** `librosa` requires `ffmpeg` for some audio formats. Install it via your system package manager (e.g. `brew install ffmpeg` on macOS or `apt install ffmpeg` on Ubuntu).
-
 ## Usage
 
 1. Start the Flask development server:
@@ -61,24 +47,8 @@ speech-emotion-classification/
 
 2. Open your browser and navigate to `http://127.0.0.1:5000`.
 
-3. Upload an audio file using the form and click submit — the predicted emotion will be displayed on the page.
-
-## Dependencies
-
-| Package | Purpose |
-|---|---|
-| `flask` | Web framework |
-| `torch` / `torchvision` | Model loading and inference |
-| `librosa` | Audio loading and preprocessing |
-| `python_speech_features` | MFCC feature extraction |
-| `numpy` | Numerical operations |
-| `opencv-python` | Image/array utilities |
-
-Install all dependencies with:
-```bash
-pip install -r requirements.txt
-```
+3. Upload an audio file using the form and click submit. The predicted emotion will be displayed on the page.
 
 ## Model
 
-The classifier is loaded from `speech-classifier.pth`, a TorchScript model that is dynamically quantized at runtime (8-bit integer quantization on linear layers) to reduce memory usage and improve CPU inference speed.
+The classifier is loaded from `speech-classifier.pth`, a TorchScript model that is dynamically quantized at runtime to reduce memory usage and improve CPU inference speed.
